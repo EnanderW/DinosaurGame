@@ -2,12 +2,12 @@ package me.enander.network;
 
 public class Connection {
 
-    private Neuron inNeuron, outNeuron;
-    private double weight;
+    private int inNeuron, outNeuron;
+    private float weight;
     private int innovationNumber;
     private boolean enabled;
 
-    public Connection(Neuron inNeuron, Neuron outNeuron, double weight, boolean enabled, int innovationNumber) {
+    public Connection(int inNeuron, int outNeuron, float weight, boolean enabled, int innovationNumber) {
         this.inNeuron = inNeuron;
         this.outNeuron = outNeuron;
         this.weight = weight;
@@ -27,19 +27,19 @@ public class Connection {
         enabled = false;
     }
 
-    public double getWeight() {
+    public float getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(float weight) {
         this.weight = weight;
     }
 
-    public Neuron getInNeuron() {
+    public int getInNeuron() {
         return inNeuron;
     }
 
-    public Neuron getOutNeuron() {
+    public int getOutNeuron() {
         return outNeuron;
     }
 

@@ -34,7 +34,7 @@ public class Game extends Canvas implements Runnable {
         entitiesToUpdate = new ArrayList<>();
         pendingEntities = new ArrayList<>();
         totalDinos = new ArrayList<>();
-        //Do neural me.enander.network stuff
+        //Do neural network stuff
         geneticAlgorithm = new GeneticAlgorithm() {
             @Override
             public float evaluateFitness(Genome genome) {
@@ -45,36 +45,40 @@ public class Game extends Canvas implements Runnable {
         species = new ArrayList<>();
 
         for (int i = 0; i < GeneticAlgorithm.populationSize; i++) {
-            Genome startingGenome = new Genome();
-            Neuron input1 = geneticAlgorithm.newNeuron(Neuron.Type.INPUT);
-            Neuron input2 = geneticAlgorithm.newNeuron(Neuron.Type.INPUT);
-            Neuron output1 = geneticAlgorithm.newNeuron(Neuron.Type.OUTPUT);
+            Genome startingGenome = new Genome(new Counter(), new Counter());
+            int input1 = geneticAlgorithm.newNeuron(startingGenome);
+            int input2 = geneticAlgorithm.newNeuron(startingGenome);
+            int input3 = geneticAlgorithm.newNeuron(startingGenome);
+            int input4 = geneticAlgorithm.newNeuron(startingGenome);
+            int output1 = geneticAlgorithm.newNeuron( startingGenome);
 
-            Connection inToOut1 = geneticAlgorithm.newConnection(input1, output1, 0.5f);
-            Connection inToOut2 = geneticAlgorithm.newConnection(input2, output1, 0.5f);
+            Connection inToOut1 = geneticAlgorithm.newConnection(input1, output1, -41.5f, startingGenome);
+            Connection inToOut2 = geneticAlgorithm.newConnection(input2, output1, -41.5f, startingGenome);
+            Connection inToOut3 = geneticAlgorithm.newConnection(input3, output1, -41.5f, startingGenome);
+            Connection inToOut4 = geneticAlgorithm.newConnection(input4, output1, -41.5f, startingGenome);
 
-            input1.getOutConnections().add(inToOut1);
-            input2.getOutConnections().add(inToOut2);
-
-            output1.getInConnections().add(inToOut1);
-            output1.getInConnections().add(inToOut2);
-
-            startingGenome.addNeuron(input1);
-            startingGenome.addNeuron(input2);
-            startingGenome.addNeuron(output1);
+            startingGenome.addNeuron(input1, Genome.Type.INPUT);
+            startingGenome.addNeuron(input2, Genome.Type.INPUT);
+            startingGenome.addNeuron(input3, Genome.Type.INPUT);
+            startingGenome.addNeuron(input4, Genome.Type.INPUT);
+            startingGenome.addNeuron(output1, Genome.Type.OUTPUT);
 
             startingGenome.addConnection(inToOut1);
             startingGenome.addConnection(inToOut2);
+            startingGenome.addConnection(inToOut3);
+            startingGenome.addConnection(inToOut4);
+
+            for (Connection connection : startingGenome.getConnections().values()) {
+                System.out.println("W: " + connection.getWeight());
+            }
 
             Dino dino = new Dino(startingGenome, 60, 270, this);
             totalDinos.add(dino);
             entitiesToUpdate.add(dino);
-
-            System.out.println(startingGenome.getConnections().size());
         }
 
         this.addKeyListener(new KeyInput(this));
-        new Window(800, 400, "Dinosaur me.enander.network.Game", this);
+        new Window(800, 400, "Dinosaur Game", this);
     }
 
     public List<Dino> getEntitiesToUpdate() {
@@ -88,7 +92,13 @@ public class Game extends Canvas implements Runnable {
     }
 
     public void reset() {
-         GeneticAlgorithm.GeneticObject newGenomes = geneticAlgorithm.evolve(totalDinos, species, this);
+        List<Genome> genomes = new ArrayList<>();
+        for (int i = 0; i < totalDinos.size(); i++) {
+            Dino dino = totalDinos.get(i);
+            genomes.add(dino.getGenome());
+        }
+
+         GeneticAlgorithm.GeneticObject newGenomes = geneticAlgorithm.evolve(genomes, species, this);
         for (int i = 0; i < totalDinos.size(); i++) {
             Dino dino = totalDinos.get(i);
             dino.setGenome(newGenomes.genomes.get(i));
@@ -161,7 +171,10 @@ public class Game extends Canvas implements Runnable {
 
         for (Dino entity : entitiesToUpdate) {
             if (!obstacles.isEmpty()) {
-                entity.update(speed, obstacles.get(0).getX() - entity.x);
+                Obstacle find = findNextObstacle();
+                if (find != null) {
+                    entity.update(speed, find.getX() - entity.x, find.getSizeY(), find.getSizeX());
+                }
 
                 Rectangle rectangle = new Rectangle((int) entity.x, (int) entity.y, 50, 50);
 
@@ -236,5 +249,16 @@ public class Game extends Canvas implements Runnable {
 
     public List<Specie> getSpecies() {
         return species;
+    }
+
+    private Obstacle findNextObstacle() {
+        for (int i = 0; i < obstacles.size(); i++) {
+            Obstacle obstacle = obstacles.get(i);
+            if (obstacle.getX() > 60) {
+                return obstacle;
+            }
+        }
+
+        return null;
     }
 }

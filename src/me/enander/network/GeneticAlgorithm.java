@@ -4,32 +4,22 @@ import java.util.*;
 
 public abstract class GeneticAlgorithm {
 
-    private Counter neuronCounter = new Counter();
-    private Counter connectionCounter = new Counter();
-
     private static final Random random = new Random();
 
-    public static final int populationSize = 100;
+    public static final int populationSize = 1000;
 
     private static final float C1 = 1, C2 = 0.4f, C3 = 1f, DT = 10;
-    private static final float MUTATION_RATE = 0.5f;
-    private static final float ADD_CONNECTION_RATE = 0.5f;
-    private static final float ADD_NEURON_RATE = 0.5f;
+    private static final float MUTATION_RATE = 0.2f;
+    private static final float ADD_CONNECTION_RATE = 0.2f;
+    private static final float ADD_NEURON_RATE = 0.2f;
 
-    public GeneticObject evolve(List<Dino> dinos, List<Specie> species, Game game) {
-        List<Genome> genomes = new ArrayList<>();
-        for (Dino dino : dinos) {
-            genomes.add(dino.getGenome());
-        }
-
+    public GeneticObject evolve(List<Genome> genomes, List<Specie> species, Game game) {
         List<Genome> nextGenerationGenomes = new ArrayList<>();
 
         //Place genomes into species
         for (Genome genome : genomes) {
             boolean foundSpecie = false;
-            System.out.println(species.size());
             for (Specie specie : species) {
-                System.out.println(compatibilityDistance(genome, specie.getMascot(), C1, C2, C3));
                 if (compatibilityDistance(genome, specie.getMascot(), C1, C2, C3) < DT) {
                     specie.addMember(genome);
                     foundSpecie = true;
@@ -45,7 +35,7 @@ public abstract class GeneticAlgorithm {
         while(iter.hasNext()) {
             Specie s = iter.next();
             if (s.getMembers().isEmpty()) {
-                iter.remove();
+                species.remove(s);
             }
         }
 
@@ -59,13 +49,10 @@ public abstract class GeneticAlgorithm {
 
         }
 
-        int amount = 0;
         for (Specie specie : species) {
-            amount++;
             specie.setFitness();
         }
 
-        System.out.println(amount);
 
         //Put the best genomes from each species into the next generation
         for (Specie specie : species) {
@@ -75,7 +62,6 @@ public abstract class GeneticAlgorithm {
 
         //Breed the next genomes
         while (nextGenerationGenomes.size() < populationSize) { // replace removed genomes by randomly breeding
-            System.out.println("While");
             Specie specie = getRandomSpeciesBiasedAjdustedFitness(random, species);
 
             Genome genome1 = getRandomGenomeBiasedAdjustedFitness(specie, random);
@@ -84,40 +70,54 @@ public abstract class GeneticAlgorithm {
             Genome child;
             if (genome1.getFitness() >= genome2.getFitness()) {
                 child = Genome.crossover(genome1, genome2, random);
+
+                if (Math.random() < MUTATION_RATE) {
+                    child.mutate(random, 0.9f);
+                }
+                if (Math.random() < ADD_CONNECTION_RATE) {
+                    child.addMutationConnection(10, genome1.getConnectionCounter(), random);
+                }
+                if (Math.random() < ADD_NEURON_RATE) {
+                    child.addMutationNeuron(genome1.getNeuronCounter(), genome1.getConnectionCounter(), random);
+                }
+
             } else {
                 child = Genome.crossover(genome2, genome1, random);
-            }
-            if (random.nextFloat() < MUTATION_RATE) {
-                child.mutate(random, 0.9f);
-            }
-            if (random.nextFloat() < ADD_CONNECTION_RATE) {
-                child.addMutationConnection(10, connectionCounter, random);
-            }
-            if (random.nextFloat() < ADD_NEURON_RATE) {
-                child.addMutationNeuron(neuronCounter, connectionCounter, random);
+
+                if (Math.random() < MUTATION_RATE) {
+                    child.mutate(random, 0.9f);
+                }
+                if (Math.random() < ADD_CONNECTION_RATE) {
+                    child.addMutationConnection(10, genome2.getConnectionCounter(), random);
+                }
+                if (Math.random() < ADD_NEURON_RATE) {
+                    child.addMutationNeuron(genome2.getNeuronCounter(), genome2.getConnectionCounter(), random);
+                }
             }
 
             nextGenerationGenomes.add(child);
         }
 
+        genomes = nextGenerationGenomes;
+
         return new GeneticObject(genomes, species);
     }
 
-    public Neuron newNeuron(Neuron.Type type) {
-        return new Neuron(type, neuronCounter.getInnovation());
+    public int newNeuron(Genome genome) {
+        return genome.getNeuronCounter().getInnovation();
     }
 
-    public Connection newConnection(Neuron input, Neuron output, float weight) {
-       return new Connection(input, output, weight, true, connectionCounter.getInnovation());
+    public Connection newConnection(int input, int output, float weight, Genome genome) {
+       return new Connection(input, output, weight, true, genome.getConnectionCounter().getInnovation());
     }
 
     private Specie getRandomSpeciesBiasedAjdustedFitness(Random random, List<Specie> species) {
-        double completeWeight = 0.0;	// sum of probablities of selecting each species - selection is more probable for species with higher fitness
+        float completeWeight = 0.0f;	// sum of probablities of selecting each species - selection is more probable for species with higher fitness
         for (Specie specie: species) {
             completeWeight += specie.getFitness();
         }
-        double r = Math.random() * completeWeight;
-        double countWeight = 0.0;
+        float r = (float)Math.random() * completeWeight;
+        float countWeight = 0.0f;
         for (Specie specie: species) {
             countWeight += specie.getFitness();
             if (countWeight >= r) {
@@ -131,12 +131,12 @@ public abstract class GeneticAlgorithm {
      * Selects a random genome from the species chosen, where genomes with a higher adjusted fitness have a higher chance of being selected
      */
     private Genome getRandomGenomeBiasedAdjustedFitness(Specie specie, Random random) {
-        double completeWeight = 0.0;	// sum of probablities of selecting each genome - selection is more probable for genomes with higher fitness
+        float completeWeight = 0.0f;	// sum of probablities of selecting each genome - selection is more probable for genomes with higher fitness
         for (Genome genome : specie.getMembers()) {
             completeWeight += genome.getFitness();
         }
-        double r = Math.random() * completeWeight;
-        double countWeight = 0.0;
+        float r = (float)Math.random() * completeWeight;
+        float countWeight = 0.0f;
         for (Genome genome : specie.getMembers()) {
             countWeight += genome.getFitness();
             if (countWeight >= r) {
@@ -255,19 +255,13 @@ public abstract class GeneticAlgorithm {
         float matchingGenes = 0;
         float weightDifference = 0;
 
-        System.out.println("Size 1: " + genome1.getConnections().size());
-
         List<Integer> conKeys1 = asSortedList(genome1.getConnections().keySet());
         List<Integer> conKeys2 = asSortedList(genome2.getConnections().keySet());
 
         int highestInnovation1 = conKeys1.get(conKeys1.size()-1);
         int highestInnovation2 = conKeys2.get(conKeys2.size()-1);
 
-        System.out.println("H1: " + highestInnovation1);
-        System.out.println("H2: " + highestInnovation2);
-
         int indices = Math.max(highestInnovation1, highestInnovation2);
-        System.out.println("Indices: " + indices);
         for (int i = 0; i <= indices; i++) { 					// loop through genes -> i is innovation numbers
             Connection connection1 = genome1.getConnections().get(i);
             Connection connection2 = genome2.getConnections().get(i);
@@ -278,8 +272,6 @@ public abstract class GeneticAlgorithm {
             }
         }
 
-        System.out.println("M: " + matchingGenes);
-        System.out.println("WD: " + weightDifference);
         return (weightDifference / matchingGenes);
     }
 

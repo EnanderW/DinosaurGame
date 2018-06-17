@@ -4,22 +4,27 @@ import java.util.*;
 
 public class Genome {
 
+
+    public enum Type {
+        INPUT, HIDDEN, OUTPUT;
+    }
+
+    private Counter connectionCounter;
+    private Counter neuronCounter;
+
     private float fitness;
     private Map<Integer, Connection> connections;
-    private Map<Integer, Neuron> allNeurons;
+    private Map<Integer, Type> neurons;
 
-    public Genome() {
+    public Genome(Counter connectionCounter, Counter neuronCounter) {
         this.connections = new HashMap<>();
-        this.allNeurons = new HashMap<>();
+        this.neurons = new HashMap<>();
+        this.connectionCounter = connectionCounter;
+        this.neuronCounter = neuronCounter;
     }
 
     public Genome(Genome toBeCopied) {
         this.connections = new HashMap<>();
-        this.allNeurons = new HashMap<>();
-
-        for (Integer index : toBeCopied.getAllNeurons().keySet()) {
-            addNeuron(new Neuron(toBeCopied.getAllNeurons().get(index)));
-        }
 
         for (Integer index : toBeCopied.getConnections().keySet()) {
             connections.put(index, new Connection(toBeCopied.getConnections().get(index)));
@@ -27,10 +32,10 @@ public class Genome {
     }
 
     public static Genome crossover(Genome genome1, Genome genome2, Random random) {
-        Genome child = new Genome();
+        Genome child = new Genome(genome1.connectionCounter, genome1.neuronCounter);
 
-        for (Neuron parent1Node : genome1.getAllNeurons().values()) {
-            child.addNeuron(new Neuron(parent1Node));
+        for (int i : genome1.getNeurons().keySet()) {
+            child.addNeuron(i, genome1.getNeurons().get(i));
         }
 
         for (Connection parent1Connection : genome1.getConnections().values()) {
@@ -46,8 +51,9 @@ public class Genome {
         return child;
     }
 
-    public void addNeuron(Neuron neuron) {
-        allNeurons.put(neuron.getInnovationNumber(), neuron);
+    public int addNeuron(int i, Type type) {
+        neurons.put(i, type);
+        return i;
     }
 
     public void addConnection(Connection connection) {
@@ -55,60 +61,99 @@ public class Genome {
     }
 
     public void mutate(Random random, float probability) {
-        System.out.println("called");
         for(Connection connection : connections.values()) {
-            System.out.println("cHANGE WEIGHT");
             if (random.nextFloat() < probability) { 			// uniformly perturbing weights
-                connection.setWeight(connection.getWeight() * (random.nextFloat() * 12f - 6f));
-
-            } else { 												// assigning new weight
+                connection.setWeight(connection.getWeight() * (random.nextFloat() * 4f - 2f));
+            } else { // assigning new weight
                 connection.setWeight(random.nextFloat() * 12f - 6f);
             }
         }
     }
 
-    public double[] calculate(double... input) {
+    public float[] calculate(float... input) {
         //System.out.println("Amount: " + allNeurons.size());
-        int oI = 0;
-        List<Double> outputs = new ArrayList<>();
-        for (Neuron neuron : allNeurons.values()) {
-            if (neuron.getType() == Neuron.Type.INPUT) {
-                double output = input[oI++];
-                for (Connection connection : neuron.getOutConnections()) {
-                    if (connection.isEnabled()) {
-                        double forward = connection.getWeight() * output;
-                        connection.getOutNeuron().add(forward);
+        List<Float > outputs = new ArrayList<>();
+        Map<Integer, Float> neuronOutputs = new HashMap<>();
+        int outputIndex = 0;
+        for (int i : neurons.keySet()) {
+            Type type = neurons.get(i);
+            if (type == Type.INPUT) {
+                List<Connection> connections = getConnectionsOut(i);
+                for (Connection connection : connections) {
+                    if (!connection.isEnabled()) {
+                        continue;
+                    }
+
+                    int outNeuron = connection.getOutNeuron();
+                    if (neuronOutputs.containsKey(outNeuron)) {
+                        neuronOutputs.put(outNeuron, neuronOutputs.get(outNeuron) + input[outputIndex] * connection.getWeight());
+                    } else {
+                        neuronOutputs.put(outNeuron, input[outputIndex] * connection.getWeight());
+                    }
+                }
+
+                outputIndex++;
+            }
+        }
+
+        for (int i : neurons.keySet()) {
+            Type type = neurons.get(i);
+            if (type == Type.HIDDEN) {
+                List<Connection> connections2 = getConnectionsOut(i);
+                for (Connection connection : connections2) {
+                    if (!connection.isEnabled()) {
+                        continue;
+                    }
+
+                    int outNeuron = connection.getOutNeuron();
+                    if (!neuronOutputs.containsKey(i)) {
+                        continue;
+                    }
+
+                    float output = sigmoid(neuronOutputs.get(i));
+                    if (neuronOutputs.containsKey(outNeuron)) {
+                        neuronOutputs.put(outNeuron, neuronOutputs.get(outNeuron) + output * connection.getWeight());
+                    } else {
+                        neuronOutputs.put(outNeuron, output);
                     }
                 }
             }
+        }
 
-            if (neuron.getType() == Neuron.Type.HIDDEN) {
-                double output = sigmoid(neuron.getOutput());
-                for (Connection connection : neuron.getOutConnections()) {
-                    if (connection.isEnabled()) {
-                        double forward = connection.getWeight() * output;
-                        connection.getOutNeuron().add(forward);
-                    }
+        for (int i : neurons.keySet()) {
+            Type type = neurons.get(i);
+            if (type == Type.OUTPUT) {
+                if (!neuronOutputs.containsKey(i)) {
+                    continue;
                 }
-            }
 
-            if (neuron.getType() == Neuron.Type.OUTPUT) {
-                double output = sigmoid(neuron.getOutput());
-                neuron.setOutput(output);
+                float output = sigmoid(neuronOutputs.get(i));
                 outputs.add(output);
             }
         }
 
-        double[] returnOutput = new double[outputs.size()];
+        float[] returnOutput = new float[outputs.size()];
         for (int i = 0; i < outputs.size(); i++) {
             returnOutput[i] = outputs.get(i);
         }
 
+
         return returnOutput;
     }
 
-    private double sigmoid(double x) {
-        return 1d / (1 + (Math.exp(-x)));
+    private List<Connection> getConnectionsOut(int i) {
+        List<Connection> toReturn = new ArrayList<>();
+        for (Connection connection : connections.values()) {
+            if (connection.getInNeuron() == i) {
+                toReturn.add(connection);
+            }
+        }
+
+        return toReturn;
+    }
+
+    private float sigmoid(float x) {
+        return 1f / (1f + (float)(Math.exp(-x)));
     }
 
     public void addMutationConnection(int maxAttempts, Counter innovation, Random random) {
@@ -117,29 +162,27 @@ public class Genome {
         while (tries < maxAttempts && !success) {
             tries++;
 
-            Integer[] nodeInnovationNumbers = new Integer[getAllNeurons().keySet().size()];
-            getAllNeurons().keySet().toArray(nodeInnovationNumbers);
-            Integer keyNode1 = nodeInnovationNumbers[random.nextInt(nodeInnovationNumbers.length)];
-            Integer keyNode2 = nodeInnovationNumbers[random.nextInt(nodeInnovationNumbers.length)];
+            int neuron1 = (int) neurons.keySet().toArray()[random.nextInt(neurons.size())];
+            int neuron2 = (int) neurons.keySet().toArray()[random.nextInt(neurons.size())];
 
-            Neuron neuron1 = getAllNeurons().get(keyNode1);
-            Neuron neuron2 = getAllNeurons().get(keyNode2);
+            Type type1 = neurons.get(neuron1);
+            Type type2 = neurons.get(neuron2);
 
             float weight = random.nextFloat()*2f-1f;
 
             boolean reversed = false;
-            if (neuron1.getType() == Neuron.Type.HIDDEN && neuron2.getType() == Neuron.Type.INPUT) {
+            if (type1 == Type.HIDDEN && type2 == Type.INPUT) {
                 reversed = true;
-            } else if (neuron1.getType() == Neuron.Type.OUTPUT && neuron2.getType() == Neuron.Type.HIDDEN) {
+            } else if (type1 == Type.OUTPUT && type2 == Type.HIDDEN) {
                 reversed = true;
-            } else if (neuron1.getType() == Neuron.Type.OUTPUT && neuron2.getType() == Neuron.Type.INPUT) {
+            } else if (type1 == Type.OUTPUT && type2 == Type.INPUT) {
                 reversed = true;
             }
 
             boolean connectionImpossible = false;
-            if (neuron1.getType() == Neuron.Type.INPUT && neuron2.getType() == Neuron.Type.INPUT) {
+            if (type1 == Type.INPUT && type2 == Type.INPUT) {
                 connectionImpossible = true;
-            } else if (neuron1.getType() == Neuron.Type.OUTPUT && neuron2.getType() == Neuron.Type.OUTPUT) {
+            } else if (type1 == Type.OUTPUT && type2 == Type.OUTPUT) {
                 connectionImpossible = true;
             }
 
@@ -160,43 +203,44 @@ public class Genome {
 
             if (reversed) {
                 Connection newCon = new Connection(neuron2, neuron1 , weight, true, innovation.getInnovation());
-                neuron2.getOutConnections().add(newCon);
-                neuron1.getInConnections().add(newCon);
                 connections.put(newCon.getInnovationNumber(), newCon);
             } else {
                 Connection newCon = new Connection(neuron1, neuron2, weight, true, innovation.getInnovation());
-                neuron1.getOutConnections().add(newCon);
-                neuron2.getInConnections().add(newCon);
                 connections.put(newCon.getInnovationNumber(), newCon);
             }
 
             success = true;
-        }
-
-        if (!success) {
-            System.out.println("Tried, but could not add more connections");
         }
     }
 
     public void addMutationNeuron(Counter neuronInnovation, Counter connectionInnovation, Random random) {
         Connection con = (Connection) connections.values().toArray()[random.nextInt(connections.size())];
 
-        Neuron inNeuron = getAllNeurons().get(con.getInNeuron().getInnovationNumber());
-        Neuron outNeuron = getAllNeurons().get(con.getOutNeuron().getInnovationNumber());
+        int inNeuron = con.getInNeuron();
+        int outNeuron = con.getOutNeuron();
 
         con.disable();
 
-        Neuron newNode = new Neuron(Neuron.Type.HIDDEN, neuronInnovation.getInnovation());
-        Connection inToNew = new Connection(inNeuron, newNode, 1.0, true, connectionInnovation.getInnovation());
-        Connection newToOut = new Connection(newNode, outNeuron, con.getWeight(), true, connectionInnovation.getInnovation());
+        int newNeuron = addNeuron(neuronInnovation.getInnovation(), Type.HIDDEN);
+        Connection inToNew = new Connection(inNeuron, newNeuron, 1.0f, true, connectionInnovation.getInnovation());
+        Connection newToOut = new Connection(newNeuron, outNeuron, con.getWeight(), true, connectionInnovation.getInnovation());
 
-        newNode.getInConnections().add(inToNew);
-        inNeuron.getOutConnections().add(inToNew);
-        outNeuron.getInConnections().add(newToOut);
-
-        allNeurons.put(newNode.getInnovationNumber(), newNode);
         connections.put(inToNew.getInnovationNumber(), inToNew);
         connections.put(newToOut.getInnovationNumber(), newToOut);
+    }
+
+    private static List<Integer> asSortedList(Collection e) {
+        List<Integer> l = new ArrayList<>(e);
+        Collections.sort(l);
+        return l;
+    }
+
+    public Counter getConnectionCounter() {
+        return connectionCounter;
+    }
+
+    public Counter getNeuronCounter() {
+        return neuronCounter;
     }
 
     public float getFitness() {
@@ -211,7 +255,7 @@ public class Genome {
         this.fitness = fitness;
     }
 
-    public Map<Integer, Neuron> getAllNeurons() {
-        return allNeurons;
+    public Map<Integer, Type> getNeurons() {
+        return neurons;
     }
 }

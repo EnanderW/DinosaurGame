@@ -22,11 +22,11 @@ public class Dino {
         velY = 7f;
     }
 
-    public void update(float speed, float distanceToNextObstacle) {
+    public void update(float speed, float distanceToNextObstacle, float height, float width) {
         if (y >= groundY) {
-            double[] output = genome.calculate(speed / 10.0f, distanceToNextObstacle / 1000.0f);
-            for (double d : output) {
-                if (d > 0.5) {
+            float[] output = genome.calculate(speed / 1.5f, distanceToNextObstacle / 800f, height / 600f, width / 800f);
+            for (float d : output) {
+                if (d > 0.5f) {
                     jump();
                 }
             }
