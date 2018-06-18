@@ -10,21 +10,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60fa5a9-97f0-4209-acd5-3eb1556e98ee" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Connection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Counter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Counter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Dino.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Dino.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm$GeneticObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm$GeneticObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome$Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Neuron$Type.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Neuron.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/enander/network/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/enander/network/Connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/enander/network/Dino.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/enander/network/Dino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/KeyInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/KeyInput.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Obstacle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Obstacle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Specie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Specie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Window.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/enander/network/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/enander/network/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/enander/network/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/enander/network/GeneticAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/enander/network/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/enander/network/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/enander/network/Neuron.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,15 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GeneticAlgorithm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/enander/network/GeneticAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-              <folding>
-                <element signature="e#4055#4056#0" expanded="true" />
-                <element signature="e#4088#4089#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -52,7 +49,7 @@
       <file leaf-file-name="Genome.java" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Desktop/hydroneat_video_3_src/src/com/hydrozoa/hydroneat/Genome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
+            <state relative-caret-position="2567">
               <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="74" />
             </state>
           </provider>
@@ -61,23 +58,21 @@
       <file leaf-file-name="Evaluator.java" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Desktop/hydroneat_video_3_src/src/com/hydrozoa/hydroneat/Evaluator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="1547">
               <caret line="99" column="47" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/enander/network/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="755">
-              <caret line="57" column="85" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
+            <state relative-caret-position="-476">
+              <caret line="175" column="138" lean-forward="true" selection-start-line="175" selection-start-column="138" selection-end-line="175" selection-end-column="138" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2811#2812#0" expanded="true" />
-                <element signature="e#2855#2856#0" expanded="true" />
-                <element signature="e#7526#7527#0" expanded="true" />
-                <element signature="e#7556#7557#0" expanded="true" />
+                <element signature="e#7331#7332#0" expanded="true" />
+                <element signature="e#7361#7362#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,12 +102,8 @@
       <file leaf-file-name="Dino.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/enander/network/Dino.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="259">
               <caret line="26" column="118" selection-start-line="26" selection-start-column="118" selection-end-line="26" selection-end-column="118" />
-              <folding>
-                <element signature="e#1175#1176#0" expanded="true" />
-                <element signature="e#1211#1212#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -120,28 +111,15 @@
       <file leaf-file-name="Genome.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/me/enander/network/Genome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
+            <state relative-caret-position="-605">
               <caret line="135" column="50" selection-start-line="135" selection-start-column="50" selection-end-line="135" selection-end-column="50" />
-              <folding>
-                <element signature="e#1983#1984#0" expanded="true" />
-                <element signature="e#2060#2061#0" expanded="true" />
-                <element signature="e#5406#5407#0" expanded="true" />
-                <element signature="e#5462#5463#0" expanded="true" />
-                <element signature="e#9189#9190#0" expanded="true" />
-                <element signature="e#9229#9230#0" expanded="true" />
-                <element signature="e#9270#9271#0" expanded="true" />
-                <element signature="e#9306#9307#0" expanded="true" />
-                <element signature="e#9339#9340#0" expanded="true" />
-                <element signature="e#9369#9370#0" expanded="true" />
-                <element signature="e#9425#9426#0" expanded="true" />
-                <element signature="e#9459#9460#0" expanded="true" />
-                <element signature="e#9504#9505#0" expanded="true" />
-                <element signature="e#9542#9543#0" expanded="true" />
-                <element signature="e#9588#9589#0" expanded="true" />
-                <element signature="e#9618#9619#0" expanded="true" />
-              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GenomePrinter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Desktop/hydroneat_video_3_src/src/com/hydrozoa/hydroneat/test/GenomePrinter.java">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Counter.java" pinned="false" current-in-tab="false">
@@ -151,7 +129,7 @@
               <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
               <folding>
                 <element signature="e#124#125#0" expanded="true" />
-                <element signature="e#145#146#0" expanded="true" />
+                <element signature="e#166#167#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -205,9 +183,9 @@
         <option value="$PROJECT_DIR$/src/me/enander/network/Connection.java" />
         <option value="$PROJECT_DIR$/src/me/enander/network/Neuron.java" />
         <option value="$PROJECT_DIR$/src/me/enander/network/Dino.java" />
-        <option value="$PROJECT_DIR$/src/me/enander/network/Game.java" />
         <option value="$PROJECT_DIR$/src/me/enander/network/Genome.java" />
         <option value="$PROJECT_DIR$/src/me/enander/network/GeneticAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/me/enander/network/Game.java" />
       </list>
     </option>
   </component>
@@ -223,8 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,14 +223,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -344,15 +323,15 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50416666" side_tool="true" visible="true" weight="0.2731137" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5052083" side_tool="true" visible="true" weight="0.08182784" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49583334" visible="true" weight="0.2731137" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49479166" visible="true" weight="0.08182784" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Floobits" order="7" sideWeight="0.49947917" weight="0.12539852" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49791667" weight="0.10201913" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49739584" weight="0.10201913" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -376,35 +355,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Counter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/me/enander/network/Genome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="57" column="36" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
-          <folding>
-            <element signature="e#1983#1984#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5462#5463#0" expanded="true" />
-            <element signature="e#9189#9190#0" expanded="true" />
-            <element signature="e#9229#9230#0" expanded="true" />
-            <element signature="e#9270#9271#0" expanded="true" />
-            <element signature="e#9306#9307#0" expanded="true" />
-            <element signature="e#9339#9340#0" expanded="true" />
-            <element signature="e#9369#9370#0" expanded="true" />
-            <element signature="e#9425#9426#0" expanded="true" />
-            <element signature="e#9459#9460#0" expanded="true" />
-            <element signature="e#9504#9505#0" expanded="true" />
-            <element signature="e#9542#9543#0" expanded="true" />
-            <element signature="e#9588#9589#0" expanded="true" />
-            <element signature="e#9618#9619#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -412,10 +366,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -449,10 +399,8 @@
           <caret line="72" column="69" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-            <element signature="e#7526#7527#0" expanded="true" />
-            <element signature="e#7556#7557#0" expanded="true" />
+            <element signature="e#7331#7332#0" expanded="true" />
+            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -489,10 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -500,10 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-          <folding>
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -540,10 +480,8 @@
           <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-            <element signature="e#7526#7527#0" expanded="true" />
-            <element signature="e#7556#7557#0" expanded="true" />
+            <element signature="e#7331#7332#0" expanded="true" />
+            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -573,10 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-          <folding>
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,10 +547,8 @@
           <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-            <element signature="e#7526#7527#0" expanded="true" />
-            <element signature="e#7556#7557#0" expanded="true" />
+            <element signature="e#7331#7332#0" expanded="true" />
+            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -689,9 +621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="35" lean-forward="true" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -721,14 +650,14 @@
     </entry>
     <entry file="file://$USER_HOME$/Desktop/hydroneat_video_3_src/src/com/hydrozoa/hydroneat/Genome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
+        <state relative-caret-position="2567">
           <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/hydroneat_video_3_src/src/com/hydrozoa/hydroneat/Evaluator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
+        <state relative-caret-position="1547">
           <caret line="99" column="47" selection-start-line="99" selection-start-column="40" selection-end-line="99" selection-end-column="47" />
         </state>
       </provider>
@@ -739,7 +668,7 @@
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
             <element signature="e#124#125#0" expanded="true" />
-            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#166#167#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,13 +683,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Neuron.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Neuron.java" />
     <entry file="file://$PROJECT_DIR$/src/me/enander/network/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -768,63 +691,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Dino.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="26" column="118" selection-start-line="26" selection-start-column="118" selection-end-line="26" selection-end-column="118" />
-          <folding>
-            <element signature="e#1175#1176#0" expanded="true" />
-            <element signature="e#1211#1212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Genome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="135" column="50" selection-start-line="135" selection-start-column="50" selection-end-line="135" selection-end-column="50" />
-          <folding>
-            <element signature="e#1983#1984#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5462#5463#0" expanded="true" />
-            <element signature="e#9189#9190#0" expanded="true" />
-            <element signature="e#9229#9230#0" expanded="true" />
-            <element signature="e#9270#9271#0" expanded="true" />
-            <element signature="e#9306#9307#0" expanded="true" />
-            <element signature="e#9339#9340#0" expanded="true" />
-            <element signature="e#9369#9370#0" expanded="true" />
-            <element signature="e#9425#9426#0" expanded="true" />
-            <element signature="e#9459#9460#0" expanded="true" />
-            <element signature="e#9504#9505#0" expanded="true" />
-            <element signature="e#9542#9543#0" expanded="true" />
-            <element signature="e#9588#9589#0" expanded="true" />
-            <element signature="e#9618#9619#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="755">
-          <caret line="57" column="85" selection-start-line="57" selection-start-column="85" selection-end-line="57" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2811#2812#0" expanded="true" />
-            <element signature="e#2855#2856#0" expanded="true" />
-            <element signature="e#7526#7527#0" expanded="true" />
-            <element signature="e#7556#7557#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$USER_HOME$/Desktop/hydroneat_video_3_src/src/com/hydrozoa/hydroneat/test/GenomePrinter.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/enander/network/GeneticAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Genome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-605">
+          <caret line="135" column="50" selection-start-line="135" selection-start-column="50" selection-end-line="135" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Dino.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="26" column="118" selection-start-line="26" selection-start-column="118" selection-end-line="26" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/me/enander/network/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-476">
+          <caret line="175" column="138" lean-forward="true" selection-start-line="175" selection-start-column="138" selection-end-line="175" selection-end-column="138" />
           <folding>
-            <element signature="e#4055#4056#0" expanded="true" />
-            <element signature="e#4088#4089#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7331#7332#0" expanded="true" />
+            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -848,7 +746,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>

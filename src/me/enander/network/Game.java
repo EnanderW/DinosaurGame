@@ -112,6 +112,8 @@ public class Game extends Canvas implements Runnable {
             dino.y = 270;
         }
 
+        obstacleTimer = 0;
+        randomAddition = 0;
         score = 0;
         speed = 1.5f;
         obstacles.clear();
@@ -139,11 +141,8 @@ public class Game extends Canvas implements Runnable {
             lastTime = now;
             while (delta >= 1) {
                 update();
-                delta--;
-            }
-
-            if (running) {
                 draw();
+                delta--;
             }
 
             frames++;
@@ -170,23 +169,17 @@ public class Game extends Canvas implements Runnable {
         }
 
         for (Dino entity : entitiesToUpdate) {
-            if (!obstacles.isEmpty()) {
-                Obstacle find = findNextObstacle();
-                if (find != null) {
-                    entity.update(speed, find.getX() - entity.x, find.getSizeY(), find.getSizeX());
-                }
-
+            Obstacle find = findNextObstacle();
+            if (find != null) {
+                entity.update(speed, find.getX() - entity.x, find.getSizeY(), find.getSizeX());
                 Rectangle rectangle = new Rectangle((int) entity.x, (int) entity.y, 50, 50);
-
-                for (int i = 0; i < obstacles.size(); i++) {
-                    Obstacle obstacle = obstacles.get(i);
-                    Rectangle r = new Rectangle((int) obstacle.getX(), 320 - (int) obstacle.getSizeY(), (int) obstacle.getSizeX(), (int) obstacle.getSizeY());
-                    if (r.intersects(rectangle)) {
-                        // DIED
-                        entity.setFitness(score);
-                        pendingEntities.add(entity);
-                    }
+                Rectangle r = new Rectangle((int) find.getX(), 320 - (int) find.getSizeY(), (int) find.getSizeX(), (int) find.getSizeY());
+                if (r.intersects(rectangle)) {
+                    entity.setFitness(score);
+                    pendingEntities.add(entity);
                 }
+            } else {
+                entity.update(speed, 800, 0, 0);
             }
         }
 
@@ -245,10 +238,6 @@ public class Game extends Canvas implements Runnable {
         randomAddition = new Random().nextInt(60);
         obstacleTimer = 0;
         obstacles.add(obstacle);
-    }
-
-    public List<Specie> getSpecies() {
-        return species;
     }
 
     private Obstacle findNextObstacle() {
