@@ -10,21 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a60fa5a9-97f0-4209-acd5-3eb1556e98ee" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Counter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Counter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Dino.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Dino.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm$GeneticObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm$GeneticObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/GeneticAlgorithm.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Genome.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/KeyInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/KeyInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Obstacle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Obstacle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Specie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Specie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Window.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DinosaurAI/me/enander/network/Window.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/me/enander/network/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/enander/network/Game.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,12 +54,10 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/me/enander/network/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-476">
-              <caret line="175" column="138" lean-forward="true" selection-start-line="175" selection-start-column="138" selection-end-line="175" selection-end-column="138" />
+            <state relative-caret-position="799">
+              <caret line="168" column="19" selection-start-line="168" selection-start-column="19" selection-end-line="168" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7331#7332#0" expanded="true" />
-                <element signature="e#7361#7362#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -189,7 +174,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="954" />
     <option name="y" value="69" />
     <option name="width" value="1400" />
@@ -323,15 +308,15 @@
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5052083" side_tool="true" visible="true" weight="0.08182784" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50572914" side_tool="true" visible="true" weight="0.08182784" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49479166" visible="true" weight="0.08182784" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49427083" visible="true" weight="0.08182784" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Floobits" order="7" sideWeight="0.49947917" weight="0.12539852" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49739584" weight="0.10201913" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.496875" weight="0.10201913" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1296875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -399,8 +384,6 @@
           <caret line="72" column="69" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7331#7332#0" expanded="true" />
-            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -480,8 +463,6 @@
           <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7331#7332#0" expanded="true" />
-            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -547,8 +528,6 @@
           <caret line="24" column="24" lean-forward="true" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7331#7332#0" expanded="true" />
-            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -717,12 +696,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/me/enander/network/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="175" column="138" lean-forward="true" selection-start-line="175" selection-start-column="138" selection-end-line="175" selection-end-column="138" />
+        <state relative-caret-position="799">
+          <caret line="168" column="19" selection-start-line="168" selection-start-column="19" selection-end-line="168" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7331#7332#0" expanded="true" />
-            <element signature="e#7361#7362#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -786,6 +763,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

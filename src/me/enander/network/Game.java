@@ -141,9 +141,10 @@ public class Game extends Canvas implements Runnable {
             lastTime = now;
             while (delta >= 1) {
                 update();
-                draw();
                 delta--;
             }
+
+            draw();
 
             frames++;
 
@@ -166,6 +167,7 @@ public class Game extends Canvas implements Runnable {
 
         if (entitiesToUpdate.isEmpty()) {
             reset();
+            return;
         }
 
         for (Dino entity : entitiesToUpdate) {
@@ -243,7 +245,7 @@ public class Game extends Canvas implements Runnable {
     private Obstacle findNextObstacle() {
         for (int i = 0; i < obstacles.size(); i++) {
             Obstacle obstacle = obstacles.get(i);
-            if (obstacle.getX() > 60) {
+            if (obstacle.getX() + obstacle.getSizeX() > 60) {
                 return obstacle;
             }
         }
